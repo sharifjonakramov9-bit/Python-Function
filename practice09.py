@@ -1,9 +1,13 @@
+from rich.console import Console
+console = Console()
+
+
 def show_menu():
-    print("---------Menu--------")
-    print("1.Balansni ko'rish")
-    print("2.Pul kiritish")
-    print("3.Pul yechish")
-    print("0.Chiqish")
+    console.print("---------Menu--------", style="yellow")
+    console.print("1.Balansni ko'rish", style="yellow")
+    console.print("2.Pul kiritish", style="yellow")
+    console.print("3.Pul yechish", style="yellow")
+    console.print("0.Chiqish", style="yellow")
 
 def deposit(balance, amount):
     if amount > 0:
@@ -18,7 +22,7 @@ def withdraw(balance, amount):
     return balance 
     
 def check_balance(balance):
-    print(f"Sizning balansingiz: {balance}")
+    console.print(f"Sizning balansingiz: {balance}", style="cyan")
 
 def main():
     balance = 100.00
@@ -39,7 +43,7 @@ def main():
         elif op == "0":
             break
         else:
-            print("Bunday menu yo'q")
+            console.print("Bunday menu yo'q", style="red")
 
 main()
 

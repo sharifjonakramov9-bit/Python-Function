@@ -1,8 +1,7 @@
-#Foydalanuvchi ball kiritadi → `A`, `B`, `C`, `F` baho qaytadi.
-#* **Funksiya**:
+from rich.console import Console
+from rich.table import Table
+console = Console()
 
-# * `get_grade(score)`
-#* **Qo‘llaniladigan narsa**: `if-elif-else`, `str`, `int`
 def get_grade(score):
     grade = ""
     
@@ -20,4 +19,12 @@ def get_grade(score):
 
 ball = int(input("Ball: "))
 grade = get_grade(ball)
-print(grade)
+
+table = Table(title="Baholash natijasi")
+
+table.add_column("Ball", justify="center", style="blue", no_wrap=True)
+table.add_column("Baho", justify="center", style="magenta")
+
+table.add_row(str(ball), grade)
+
+console.print(table)

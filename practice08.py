@@ -1,5 +1,7 @@
-# F = 9/5 * C +32 selsiydan farangetga utish formulasi
-# C = 5/9 * (F-32) Farangeytdan selsiyga utish
+from rich.console import Console
+from rich.prompt import Prompt
+console = Console()
+prompt = Prompt()
 
 def c_to_f(celsius):
     F = 9 / 5 * celsius +32
@@ -11,29 +13,29 @@ def f_to_c(fahrenheit):
 
 def main():
     while True:
-        print("""
+        console.print("""
 ----------MENU------------
  1 - Selsiydan Farangetga    
  2 - Farangetdan Selsiyga   
  3 - Dasturni yakunlash
 
-""")
-        check = input(" ")
+""", style="yellow")
+        check = prompt.ask(" ")
         if check == "1":
-            celsius = float(input("Selsiyning qiymatini kiriting: "))
+            celsius = float(prompt.ask("Selsiyning qiymatini kiriting: "))
             farangeyt = c_to_f(celsius)
-            print (f"{celsius}==> {farangeyt} (Farangeyt)ga teng ")
+            console.print (f"{celsius}==> {farangeyt} (Farangeyt)ga teng ", style="blue")
 
         elif check == "2":
-            fahrenheit = float(input("Farangeytning qiymatini kiriting: "))
+            fahrenheit = float(prompt.ask("Farangeytning qiymatini kiriting: "))
             celsius = f_to_c(fahrenheit)
-            print (f"{fahrenheit}==> {celsius} (Selsiy)ga teng ")
+            console.print (f"{fahrenheit}==> {celsius} (Selsiy)ga teng ", style="blue")
 
         elif check == "3":
-            print("Dastur tugadi! ")
+            console.print("Dastur tugadi! ", style="cyan")
             break
         
         else:
-            print("Bunday menu mavjud emas!")
+            console.print("Bunday menu mavjud emas!", style="red")
             
 main()

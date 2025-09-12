@@ -1,5 +1,8 @@
-def calculate_tax(salary) : # Shartlarda nimadurlar berilib tashlagan uncha tushunmay qoldim
-    if salary > 5_000_000: # keyin youtube dan video keyin chatGPT dan ozgina tushuncha olib ishlayapman
+from rich.console import Console
+console = Console()
+
+def calculate_tax(salary) :  
+    if salary > 5_000_000: 
         return salary * 0.20
     else:
         return salary * 0.13
@@ -13,5 +16,5 @@ y = int(input("Maoshingizni kiriting: "))
 a = calculate_tax(y)
 b = calculate_net_salary(y)
 
-print("Sizning maoshingiz: ", a, "so'm.")
-print("Sof maosh: ", b, "so'm")
+console.print("Sizning maoshingizdan olinadigan mablag':  ", a, "so'm.", style="blue")
+console.print("Sof maosh: ", b, "so'm", style="cyan")

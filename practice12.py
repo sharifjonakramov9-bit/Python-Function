@@ -1,3 +1,6 @@
+from rich.console import Console
+console = Console()
+
 def calculate_bmi():
     weight = float(input("Vazn: "))
     height = float(input("Bo'y: "))
@@ -15,6 +18,6 @@ def bmi_status(bmi):
         return "Semizlik"
 
 bmi = calculate_bmi()
-print("Test natijasiga ko'ra", round(bmi, 2))
-print("Holat", bmi_status(bmi))
+console.print(f"Test natijasiga ko'ra {round(bmi, 2)}", style="magenta")
+console.print(f"Holat: {bmi_status(bmi)}", style="cyan")
 

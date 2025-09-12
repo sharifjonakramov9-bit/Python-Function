@@ -1,4 +1,7 @@
-
+from rich.console import Console
+from rich.table import Table
+console = Console()
+tablse = Table()
 
 def add(a, b):
     return a + b
@@ -22,20 +25,23 @@ def main():
         z = input("Amal: ")
 
         if z == "+":
-            print(add(a, b))
+            result = add(x, y)
         elif z == "-":
-            print(subtract(a, b))
+            result = subtract(x, y)
         elif z == "*":
-            print(multiply(a, b))
+            result = multiply(x, y)
         elif z == "/":
-            print(divide(a, b))
+            result = divide(x, y)
         else:
-            print("Bunday amal mavjud emas! ")
+            console.print("Bunday amal mavjud emas! ", style="red")
         
-        choice = input("davom etiramizmi?" "(Ha/yo'q): ")
+        console.print(f"Natija: {result}", style="green")
+        choice = input("davom etiramizmi?" "(Ha/yo'q): ").lower()
 
-        if choice.lower() != "ha":
+        if choice.lower() != "ha" and choice.lower() != "":
+            console.print("Dastur tugadi hayr!", style="yellow")
             break
+
 
 
 main()
